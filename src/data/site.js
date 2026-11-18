@@ -44,7 +44,13 @@ export async function saveToSheet(data) {
 export const whatsappLink = (text) =>
   `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(text)}`;
 
-export const USER_RANGES = ["1–5 users", "6–20 users", "21–50 users", "50+ users", "Multiple branches"];
+export const BUDGET_RANGES = [
+  "Below ₹10,000",
+  "₹10,000 – ₹50,000",
+  "₹50,000 – ₹1,00,000",
+  "₹1,00,000 – ₹2,00,000",
+  "Above ₹2,00,000",
+];
 
 // Business model: there is no online payment. Plans are shown, prices are quoted on enquiry.
 export const PRICING_MODELS = [

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CheckCircle2, Loader2, MessageCircle, MonitorPlay, Send } from "lucide-react";
 import { PRODUCTS, getProduct } from "../data/products";
-import { USER_RANGES, saveToSheet, whatsappLink } from "../data/site";
+import { BUDGET_RANGES, saveToSheet, whatsappLink } from "../data/site";
 
 const field =
   "mt-1.5 w-full rounded-xl border border-navy-900/10 bg-ice-50 px-3.5 py-2.5 text-sm text-navy-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10";
@@ -18,7 +18,7 @@ export default function EnquiryForm({ type = "enquiry", product = "", onDone, co
     mobile: "",
     business: "",
     software: getProduct(product)?.name || "",
-    users: "",
+    budget: "",
     time: "",
     requirements: "",
     trap: "", // honeypot: hidden from people, bots fill it
@@ -45,7 +45,7 @@ export default function EnquiryForm({ type = "enquiry", product = "", onDone, co
       `Mobile: ${mobile}`,
       `Business: ${form.business}`,
       `Interested Software: ${form.software || "Not sure yet"}`,
-      `Users / Branches: ${form.users || "-"}`,
+      `Budget: ${form.budget || "-"}`,
       isDemo && form.time ? `Preferred demo time: ${form.time}` : null,
       `Requirements: ${form.requirements || "-"}`,
     ].filter((l) => l !== null);
@@ -58,7 +58,7 @@ export default function EnquiryForm({ type = "enquiry", product = "", onDone, co
       mobile,
       business: form.business.trim(),
       software: form.software || "Not sure yet",
-      users: form.users,
+      budget: form.budget,
       time: isDemo ? form.time.trim() : "",
       requirements: form.requirements.trim(),
       page: window.location.href,
@@ -160,10 +160,10 @@ export default function EnquiryForm({ type = "enquiry", product = "", onDone, co
           </select>
         </label>
         <label className={`block ${isDemo ? "" : "sm:col-span-2"}`}>
-          <span className={label}>Number of Users / Branches</span>
-          <select className={field} value={form.users} onChange={update("users")}>
+          <span className={label}>Your Budget</span>
+          <select className={field} value={form.budget} onChange={update("budget")}>
             <option value="">Select</option>
-            {USER_RANGES.map((r) => (
+            {BUDGET_RANGES.map((r) => (
               <option key={r}>{r}</option>
             ))}
           </select>
