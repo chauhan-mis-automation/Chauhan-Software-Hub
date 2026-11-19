@@ -1,7 +1,6 @@
 import {
   BarChart3,
   Boxes,
-  CalendarCheck,
   MessageCircle,
   TrendingUp,
 } from "lucide-react";
@@ -12,8 +11,6 @@ import leadCrm from "../assets/products/lead-management-crm.jpeg";
 import salesMarketing from "../assets/products/sales-marketing-dashboard.jpeg";
 import orderManagement from "../assets/products/order-management-dashboard.jpeg";
 import empPerformance from "../assets/products/emp-performance-dashboard.jpeg";
-import transport from "../assets/products/transport-management-dashboard.jpeg";
-import booking from "../assets/products/booking-process.jpeg";
 import misProductionReport from "../assets/products/mis-production-report.jpeg";
 import salesMarketingKpi from "../assets/products/sales-marketing-kpi.jpeg";
 import foodErpDashboard from "../assets/products/food-erp-dashboard.jpeg";
@@ -30,7 +27,6 @@ export const CATEGORIES = [
   { id: "crm", name: "CRM & Sales", icon: TrendingUp, color: "from-blue-500 to-indigo-500" },
   { id: "erp", name: "ERP & Operations", icon: Boxes, color: "from-amber-500 to-orange-500" },
   { id: "mis", name: "MIS & Analytics", icon: BarChart3, color: "from-violet-500 to-fuchsia-500" },
-  { id: "booking", name: "Booking Systems", icon: CalendarCheck, color: "from-rose-500 to-pink-500" },
 ];
 
 /*
@@ -259,52 +255,6 @@ export const PRODUCTS = [
       "Billing",
     ],
     idealFor: ["Manufacturing companies", "Furniture, plywood & panel makers", "Make-to-order factories", "Multi-department teams"],
-  },
-  {
-    slug: "logistics-transport-management",
-    name: "Logistics & Transport Management",
-    category: "erp",
-    tagline: "Enquiry, quote, booking and live shipment tracking.",
-    images: [transport],
-    video: "",
-    featured: false,
-    bestSeller: false,
-    newArrival: true,
-    overview:
-      "Handle the full shipment journey in one flow — enquiry, quotation, booking and live delivery status — with carrier-wise and mode-wise analysis.",
-    features: [
-      "Enquiry → quote → booking flow",
-      "Live shipment status tracking",
-      "Road, air and sea freight modes",
-      "Carrier-wise performance",
-      "Activity feed & logistics overview",
-      "Payments & reports",
-    ],
-    modules: ["Enquiries", "Quotes", "Shipments", "Tracking", "Payments", "Reports"],
-    idealFor: ["Transporters", "Freight forwarders", "Logistics companies"],
-  },
-  {
-    slug: "event-booking-system",
-    name: "Event Booking System",
-    category: "booking",
-    tagline: "Ticket selection, details, review and confirmation.",
-    images: [booking],
-    video: "",
-    featured: false,
-    bestSeller: false,
-    newArrival: true,
-    overview:
-      "A guided 4-step booking flow — select tickets, enter details, review and confirm — with instant confirmation for your customers and a clean admin view of all bookings.",
-    features: [
-      "4-step guided booking flow",
-      "Multiple ticket types & quantities",
-      "Customer details capture",
-      "Booking review & instant confirmation",
-      "Events, bookings & user management",
-      "Booking reports",
-    ],
-    modules: ["Events", "Bookings", "Users", "Reports"],
-    idealFor: ["Event organisers", "Workshops & seminars", "Venues"],
   },
 ];
 

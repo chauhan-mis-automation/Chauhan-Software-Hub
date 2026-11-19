@@ -86,7 +86,7 @@ function Categories() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
       <SectionHead eyebrow="Browse" title="Software Categories" link="/software" linkText="All software" />
-      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {CATEGORIES.map((c) => {
           const count = PRODUCTS.filter((p) => p.category === c.id).length;
           return (
@@ -289,7 +289,7 @@ export default function Home() {
       />
       <Row eyebrow="Most enquired" title="Best Selling Software" products={PRODUCTS.filter((p) => p.bestSeller)} />
       <Row eyebrow="Just launched" title="New Arrivals" products={PRODUCTS.filter((p) => p.newArrival)} bg />
-      <Row eyebrow="Complete range" title="All Software Products" products={PRODUCTS} />
+      <Row eyebrow="Complete range" title="All Software Products" products={PRODUCTS} cols="mt-8 lg:grid-cols-4" />
       <HowItWorks />
       <Pricing />
       <Reviews />
