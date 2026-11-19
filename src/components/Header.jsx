@@ -22,7 +22,7 @@ export function SearchBar({ big = false, className = "" }) {
       <input
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search CRM, WhatsApp, ERP, School…"
+        placeholder="Search CRM, WhatsApp, ERP, MIS…"
         aria-label="Search software"
         className={`min-w-0 flex-1 bg-transparent px-3 outline-none placeholder:text-navy-900/40 ${big ? "py-4 text-base" : "py-2.5 text-sm"}`}
       />

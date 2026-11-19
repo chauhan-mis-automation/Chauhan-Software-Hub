@@ -146,7 +146,7 @@ export default function EnquiryForm({ type = "enquiry", product = "", onDone, co
         </label>
         <label className="block">
           <span className={label}>Business Name *</span>
-          <input required className={field} value={form.business} onChange={update("business")} placeholder="Company / shop / school" autoComplete="organization" />
+          <input required className={field} value={form.business} onChange={update("business")} placeholder="Company / firm name" autoComplete="organization" />
         </label>
         <label className="block">
           <span className={label}>Interested Software *</span>

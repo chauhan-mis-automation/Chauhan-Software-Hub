@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Images, PlayCircle } from "lucide-react";
+import { ArrowRight, BadgeCheck, Images, PlayCircle } from "lucide-react";
 import { getCategory } from "../data/products";
 import { useEnquiry } from "./EnquiryContext";
 
@@ -29,6 +29,18 @@ export function Badge({ children, tone = "blue" }) {
     teal: "bg-teal-500 text-white",
   };
   return <span className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${tones[tone]}`}>{children}</span>;
+}
+
+export function PartnerBadge({ children, big = false }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full bg-blue-500/10 font-semibold text-blue-600 ring-1 ring-blue-500/20 ${
+        big ? "px-3 py-1 text-xs" : "px-2 py-0.5 text-[10px]"
+      }`}
+    >
+      <BadgeCheck size={big ? 15 : 12} /> {children}
+    </span>
+  );
 }
 
 export default function ProductCard({ product }) {
@@ -65,6 +77,11 @@ export default function ProductCard({ product }) {
         <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-blue-500">
           <cat.icon size={13} /> {cat.name}
         </p>
+        {product.partnerBadge && (
+          <div className="mt-2">
+            <PartnerBadge>{product.partnerBadge}</PartnerBadge>
+          </div>
+        )}
         <Link to={to}>
           <h3 className="font-display mt-2 text-lg font-bold leading-snug group-hover:text-blue-500">{product.name}</h3>
         </Link>
@@ -77,16 +94,16 @@ export default function ProductCard({ product }) {
           <div className="mt-3 grid grid-cols-2 gap-2">
             <Link
               to={to}
-              className="flex items-center justify-center gap-1 rounded-full border border-navy-900/10 px-3 py-2.5 text-xs font-semibold hover:bg-ice-50"
+              className="flex items-center justify-center gap-1 whitespace-nowrap rounded-full border border-navy-900/10 px-2 py-2.5 text-xs font-semibold hover:bg-ice-50"
             >
               View Details
             </Link>
             <button
               type="button"
               onClick={() => openEnquiry(product.slug)}
-              className="flex items-center justify-center gap-1 rounded-full bg-navy-900 px-3 py-2.5 text-xs font-semibold text-white hover:bg-blue-500"
+              className="group/btn flex items-center justify-center gap-1 whitespace-nowrap rounded-full bg-navy-900 px-2 py-2.5 text-xs font-semibold text-white hover:bg-blue-500"
             >
-              Enquire Now <ArrowRight size={13} />
+              Enquire Now <ArrowRight size={13} className="hidden sm:inline min-[1280px]:hidden 2xl:inline" />
             </button>
           </div>
         </div>

@@ -2,7 +2,6 @@ import {
   BarChart3,
   Boxes,
   CalendarCheck,
-  GraduationCap,
   MessageCircle,
   TrendingUp,
 } from "lucide-react";
@@ -12,20 +11,25 @@ import whatsappFlow from "../assets/products/whatsapp-automation-flow.jpeg";
 import leadCrm from "../assets/products/lead-management-crm.jpeg";
 import salesMarketing from "../assets/products/sales-marketing-dashboard.jpeg";
 import orderManagement from "../assets/products/order-management-dashboard.jpeg";
-import paymentProcess from "../assets/products/payment-process.jpeg";
 import empPerformance from "../assets/products/emp-performance-dashboard.jpeg";
 import transport from "../assets/products/transport-management-dashboard.jpeg";
 import booking from "../assets/products/booking-process.jpeg";
+import misProductionReport from "../assets/products/mis-production-report.jpeg";
+import salesMarketingKpi from "../assets/products/sales-marketing-kpi.jpeg";
+import foodErpDashboard from "../assets/products/food-erp-dashboard.jpeg";
+import foodErpBatch from "../assets/products/food-erp-batch.jpeg";
 import o2dDashboard from "../assets/products/production-dispatch-dashboard.jpeg";
 import o2dNewOrder from "../assets/products/production-dispatch-new-order.jpeg";
 import o2dPpc from "../assets/products/production-dispatch-ppc.jpeg";
+import ppcDashboard from "../assets/products/o2d-ppc-dashboard.jpeg";
+import ppcCtb from "../assets/products/o2d-ppc-ctb.jpeg";
+import ppcProduction from "../assets/products/o2d-ppc-production.jpeg";
 
 export const CATEGORIES = [
-  { id: "marketing", name: "Marketing Automation", icon: MessageCircle, color: "from-emerald-500 to-teal-500" },
+  { id: "marketing", name: "WhatsApp Business API", icon: MessageCircle, color: "from-emerald-500 to-teal-500" },
   { id: "crm", name: "CRM & Sales", icon: TrendingUp, color: "from-blue-500 to-indigo-500" },
   { id: "erp", name: "ERP & Operations", icon: Boxes, color: "from-amber-500 to-orange-500" },
   { id: "mis", name: "MIS & Analytics", icon: BarChart3, color: "from-violet-500 to-fuchsia-500" },
-  { id: "education", name: "Education", icon: GraduationCap, color: "from-sky-500 to-cyan-500" },
   { id: "booking", name: "Booking Systems", icon: CalendarCheck, color: "from-rose-500 to-pink-500" },
 ];
 
@@ -35,6 +39,7 @@ export const CATEGORIES = [
   - video:  a YouTube link ("https://youtu.be/xxxx") or a file in /public/videos ("/videos/demo.mp4").
             Leave "" if there is no video yet.
   - videoPoster: (optional, mp4 only) thumbnail image in /public/videos shown before the video plays.
+  - partnerBadge: (optional) small badge shown on the card and product page, e.g. "Meta Tech Provider".
   - featured / bestSeller / newArrival: true/false — decides which home-page rows show the product.
 */
 export const PRODUCTS = [
@@ -43,14 +48,16 @@ export const PRODUCTS = [
     name: "WhatsApp Bulk Automation",
     category: "marketing",
     tagline: "Bulk messaging, campaigns and automation.",
+    partnerBadge: "Meta Tech Provider",
     images: [whatsappDashboard, whatsappFlow],
     video: "",
     featured: true,
     bestSeller: true,
     newArrival: false,
     overview:
-      "Send bulk WhatsApp campaigns on the official WhatsApp Business API, reply to customers from one shared inbox, and automate conversations with no-code chatbot flows — all with delivery, read and reply tracking.",
+      "As a Meta Tech Provider, we set you up on the official WhatsApp Business API. Send bulk WhatsApp campaigns, reply to customers from one shared inbox, and automate conversations with no-code chatbot flows — all with delivery, read and reply tracking.",
     features: [
+      "Official WhatsApp Business API via Meta Tech Provider",
       "Bulk campaigns with approved templates",
       "No-code chatbot & auto-reply flows",
       "Shared team inbox for all chats",
@@ -94,7 +101,7 @@ export const PRODUCTS = [
     name: "Sales & Marketing CRM",
     category: "crm",
     tagline: "Sales pipeline, campaigns and performance reports.",
-    images: [salesMarketing],
+    images: [salesMarketingKpi, salesMarketing],
     video: "/videos/crm-lead-automation.mp4",
     videoPoster: "/videos/crm-lead-automation.jpg",
     featured: false,
@@ -117,32 +124,56 @@ export const PRODUCTS = [
     slug: "business-erp",
     name: "Business ERP Software",
     category: "erp",
-    tagline: "Inventory, billing, accounts and operations.",
-    images: [paymentProcess, orderManagement],
+    tagline: "Food processing ERP — raw material QC to production, packing, repacking and dispatch.",
+    images: [foodErpDashboard, foodErpBatch],
     video: "/videos/custom-erp.mp4",
     videoPoster: "/videos/custom-erp.jpg",
     featured: true,
     bestSeller: false,
     newArrival: false,
     overview:
-      "Run day-to-day operations from one system — orders, inventory, billing and accounts — with real-time stock levels and an order-to-payment flow your whole team can follow.",
+      "An ERP built for the food industry, running live at a frozen and processed vegetables company. It follows every kilo from incoming raw material and quality check, through pre-processing, production, FG packing, repacking and branding, to cold storage and dispatch. Stock is tracked by cold storage and rack, every batch has its yield and cost, and the owner sees it all on one dashboard.",
     features: [
-      "Order entry to delivery tracking",
-      "Inventory & stock alerts",
-      "Billing & invoices",
-      "Accounts & payment tracking",
-      "Purchase and dispatch management",
-      "Top-selling products & sales analytics",
+      "Incoming QC with approval and rejection %",
+      "Raw material stock by cold storage & rack",
+      "Pre-process batches (cleaning, cutting, blanching)",
+      "Production with yield % tracking",
+      "FG packing with QC approval",
+      "Repacking & branding — mix batches, brand, pouch & carton",
+      "IMS: bulk vs branded stock in Kg",
+      "Dispatch with pending-dispatch alerts",
+      "Packing material stock alerts",
+      "Batch-wise costing: material, packing & worker cost",
+      "Production flow & 30-day daily trend dashboard",
+      "Reports and user management with roles",
     ],
-    modules: ["Orders", "Inventory", "Billing", "Accounts", "Purchase", "Dispatch", "Reports"],
-    idealFor: ["Manufacturing units", "Wholesalers & retailers", "Trading companies"],
+    modules: [
+      "Dashboard",
+      "Incoming QC",
+      "Raw Material",
+      "Pre Process",
+      "Production",
+      "FG Packing",
+      "Repacking & Branding",
+      "IMS (Inventory)",
+      "Dispatch",
+      "Costing",
+      "Reports",
+      "User Management",
+    ],
+    idealFor: [
+      "Frozen & processed vegetable units",
+      "Food processing companies",
+      "Spices, pulses & dry-food packers",
+      "Cold storage based businesses",
+    ],
   },
   {
     slug: "business-mis-dashboard",
     name: "Business MIS Dashboard",
     category: "mis",
     tagline: "Business analytics, reports and performance tracking.",
-    images: [orderManagement, empPerformance],
+    images: [misProductionReport, orderManagement, empPerformance],
     video: "",
     featured: true,
     bestSeller: false,
@@ -187,27 +218,47 @@ export const PRODUCTS = [
     idealFor: ["Manufacturing units", "Plywood, board & building materials", "Make-to-order factories"],
   },
   {
-    slug: "school-erp",
-    name: "School ERP",
-    category: "education",
-    tagline: "Student, fee, attendance and school management.",
-    images: [],
-    video: "",
-    featured: false,
+    slug: "o2d-ppc-crm",
+    name: "O2D PPC CRM",
+    category: "erp",
+    tagline: "Order-to-Delivery ERP with planning, production, QC and dispatch in one web app.",
+    images: [ppcDashboard, ppcCtb, ppcProduction],
+    video: "/videos/o2d-ppc-crm.mp4",
+    videoPoster: "/videos/o2d-ppc-crm.jpg",
+    featured: true,
     bestSeller: false,
     newArrival: true,
     overview:
-      "Manage your school from one place — admissions, student records, fee collection, attendance and parent communication — with clear reports for the management.",
+      "A complete web-based Order-to-Delivery system for manufacturers. From sales enquiry and order booking to material planning, production, quality control, picking, packing, dispatch and billing — with a live operations command center showing every order's position.",
     features: [
-      "Admissions & student records",
-      "Fee collection, dues & receipts",
-      "Student and staff attendance",
-      "Classes, sections & timetable",
-      "Exams and report cards",
-      "Parent communication on WhatsApp",
+      "Operations command center with live KPIs",
+      "Order pipeline: order → PPC → production → QC → dispatch → delivered",
+      "Sales CRM with leads, enquiries & daily report",
+      "BOM, Clear-to-Build (CTB) & material availability",
+      "Inventory, purchase, RFQs & open PO tracking",
+      "Production work orders with plan vs actual",
+      "Quality control with pass rate & rejections",
+      "Warehouse, picking, packing, shipments & delivery",
+      "Customer performance & on-time delivery %",
+      "MIS analytics, invoices & credit notes",
     ],
-    modules: ["Admissions", "Students", "Fees", "Attendance", "Exams", "Staff", "Reports"],
-    idealFor: ["Schools", "Coaching institutes", "Academies"],
+    modules: [
+      "Dashboard",
+      "Sales CRM",
+      "Orders",
+      "Masters",
+      "BOM",
+      "CTB",
+      "Inventory",
+      "Purchase",
+      "PPC",
+      "Production",
+      "Quality Control",
+      "Warehouse & Dispatch",
+      "MIS / Analytics",
+      "Billing",
+    ],
+    idealFor: ["Manufacturing companies", "Furniture, plywood & panel makers", "Make-to-order factories", "Multi-department teams"],
   },
   {
     slug: "logistics-transport-management",

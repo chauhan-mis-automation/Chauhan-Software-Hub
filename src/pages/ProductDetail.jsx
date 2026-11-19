@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { useEnquiry } from "../components/EnquiryContext";
 import EnquiryForm from "../components/EnquiryForm";
-import { Badge, ProductCover } from "../components/ProductCard";
+import { Badge, PartnerBadge, ProductCover } from "../components/ProductCard";
 import { ProductGrid, SectionHead } from "../components/Section";
 import { PRODUCTS, getCategory, getProduct } from "../data/products";
 import { PRICING_MODELS, whatsappLink } from "../data/site";
@@ -205,7 +205,8 @@ export default function ProductDetail() {
             </div>
             <h1 className="font-display mt-2 text-3xl sm:text-4xl font-bold leading-tight">{product.name}</h1>
             <p className="mt-2 text-navy-900/60">{product.tagline}</p>
-            <div className="mt-3 flex gap-1.5">
+            <div className="mt-3 flex flex-wrap items-center gap-1.5">
+              {product.partnerBadge && <PartnerBadge big>{product.partnerBadge}</PartnerBadge>}
               {product.bestSeller && <Badge tone="amber">Best Seller</Badge>}
               {product.newArrival && <Badge tone="teal">New</Badge>}
               {product.featured && <Badge>Featured</Badge>}

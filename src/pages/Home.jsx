@@ -10,7 +10,7 @@ import { COMPANY, PRICING_MODELS, REVIEWS, STEPS, whatsappLink } from "../data/s
 import heroA from "../assets/products/whatsapp-crm-dashboard.jpeg";
 import heroB from "../assets/products/lead-management-crm.jpeg";
 
-const QUICK = ["WhatsApp", "CRM", "ERP", "MIS", "School"];
+const QUICK = ["WhatsApp", "CRM", "ERP", "MIS", "Dispatch"];
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -36,7 +36,7 @@ function Hero() {
             <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">Software Hub</span>
           </h1>
           <p className="mt-4 max-w-lg text-base sm:text-lg text-ice-200/75">
-            Ready-to-use WhatsApp automation, CRM, ERP, MIS and School software for growing businesses. Explore the
+            Ready-to-use WhatsApp automation, CRM, ERP, production and MIS software for growing businesses. Explore the
             screens, then ask us for a live demo.
           </p>
 
@@ -86,7 +86,7 @@ function Categories() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
       <SectionHead eyebrow="Browse" title="Software Categories" link="/software" linkText="All software" />
-      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {CATEGORIES.map((c) => {
           const count = PRODUCTS.filter((p) => p.category === c.id).length;
           return (
@@ -119,7 +119,7 @@ function DemoVideos() {
         <p className="text-xs font-semibold uppercase tracking-widest text-blue-400">Watch in action</p>
         <h2 className="font-display mt-1.5 text-2xl sm:text-3xl font-bold text-white">Software Demo Videos</h2>
         <p className="mt-2 text-sm sm:text-base text-ice-200/60">Real walkthroughs of systems we've built and delivered.</p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {withVideo.map((p) => (
             <Link key={p.slug} to={`/software/${p.slug}`} className="group overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:-translate-y-1 hover:ring-white/25">
               <div className="relative aspect-video overflow-hidden bg-navy-900">
@@ -144,13 +144,13 @@ function DemoVideos() {
   );
 }
 
-function Row({ eyebrow, title, desc, products, bg }) {
+function Row({ eyebrow, title, desc, products, bg, cols = "mt-8 lg:grid-cols-3" }) {
   if (!products.length) return null;
   return (
     <section className={bg ? "bg-white" : ""}>
       <motion.div {...reveal} className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
         <SectionHead eyebrow={eyebrow} title={title} desc={desc} link="/software" />
-        <ProductGrid products={products} />
+        <ProductGrid products={products} className={cols} />
       </motion.div>
     </section>
   );
